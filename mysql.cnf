@@ -1,0 +1,5 @@
+[client]
+database = stripe
+user = stripe
+password = stripe
+default-character-set = utf8
