@@ -2,6 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Sideshow);
 body {
   font-family: Helvetica, Verdana, Arial, sans-serif;
+  font-size: 14pt;
   max-height: 900px;
   background: #d8e0de;
   /* Old browsers */
@@ -103,12 +104,16 @@ body {
   font-weight: bold;
   padding: 0; }
 .product-detail .product-description {
-  padding: 0;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 5px;
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 5px;
-  margin-bottom: 0;
-  font-size: 16pt; }
+  margin-bottom: 5px;
+  font-size: 14pt;
+  border-bottom: 1px solid gray; }
 .product-detail .product-price {
   margin: 0;
   padding: 0;
