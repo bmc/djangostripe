@@ -17,7 +17,6 @@ def products(request):
 
 def product(request, id):
     p = Product.objects.get(id=id)
-    print '*** %s' % str(p)
     c = Context({
         'product': p,
     })
