@@ -124,3 +124,37 @@ body {
     font-size: 10pt;
     font-style: italic;
     padding-right: 1em; }
+
+#credit-card-block {
+  margin-top: 50px !important;
+  border: 1px solid gray;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  padding: 10px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 13pt;
+  padding-bottom: 40px !important; }
+  #credit-card-block form {
+    width: 100%; }
+    #credit-card-block form div.form-row {
+      width: 100%;
+      display: table-row; }
+      #credit-card-block form div.form-row label {
+        width: 50%;
+        min-width: 50% !important;
+        display: table-cell;
+        padding-right: 5px; }
+      #credit-card-block form div.form-row .card-value {
+        width: 50%;
+        display: table-cell; }
+    #credit-card-block form .button-row {
+      width: 100%;
+      display: table-row;
+      text-align: right;
+      float: right;
+      margin-bottom: 10px; }
+      #credit-card-block form .button-row button {
+        text-align: center;
+        display: table-cell; }
