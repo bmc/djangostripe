@@ -5,7 +5,13 @@ from django.conf.urls.defaults import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('stripetest.views',
-    url(r'^stripetest/products/$', 'products'),
+    url(r'^stripetest/buy$', 'buy'),
     url(r'^stripetest/product/(\d+)', 'product'),
     url(r'^stripetest/$', 'index'),
+    url(r'^stripetest/force_logout$', 'force_logout'),
+    url(r'^/?$', 'index'),
+)
+
+urlpatterns += patterns('',
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
 )

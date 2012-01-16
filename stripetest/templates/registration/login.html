@@ -1,0 +1,33 @@
+{% extends "layouts/page.html" %}
+{% load url from future %}
+
+{% block body %}
+
+{% if form.errors %}
+<div id="error">
+Your user name and password did not match. Please try again.
+</div>
+{% endif %}
+
+<div id="login-box">
+  <form action="{% url 'django.contrib.auth.views.login' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-row">
+      <label>{{ form.username.label_tag }}</label>
+      <span class="form-value">{{ form.username }}</span>
+    </div>
+
+    <div class="form-row">
+      <label>{{ form.password.label_tag }}</label>
+      <span class="form-value">{{ form.password }}</span>
+    </div>
+
+    <div class="button-row">
+      <input type="submit" class="button" value="Log In"/>
+    </div>
+
+    <input type="hidden" name="next" value="{{ next }}"/>
+  </form>
+</div>
+
+{% endblock body %}

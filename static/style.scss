@@ -5,6 +5,7 @@
 $sans_serif: Helvetica, Verdana, Arial, sans-serif;
 $content_width: 70%;
 $normal_font_size: 14pt;
+$logo_background: #00ccdd;
 
 @mixin gradient {
     background: #d8e0de; /* Old browsers */
@@ -71,7 +72,7 @@ body {
     -moz-border-radius: 10px;
     padding: 10px;
     border: 1px solid gray;
-    background: #00ccdd;
+    background: $logo_background;
 
     sup {
         font-size: 12pt;
@@ -113,6 +114,16 @@ body {
     @include rounded_border;
     margin-top: 50px;
     font-size: $normal_font_size - 1pt;
+}
+
+#login-box {
+    @include centered(40%);
+    border: 1px solid gray;
+    @include rounded-border;
+    font-size: $normal_font_size - 2pt;
+    background: $logo_background;
+    margin-top: 100px;
+    padding-bottom: 40px !important;
 }
 
 .button {
@@ -168,6 +179,40 @@ body {
     }
 }
 
+form {
+    width: 100%;
+
+    div.form-row {
+        width: 100%;
+        display: table-row;
+
+        label {
+            width: 50%;
+            min-width: 50% !important;
+            display: table-cell;
+            padding-right: 5px;
+        }
+
+        .form-value {
+            width: 50%;
+            display: table-cell;
+        }
+    }
+
+    .button-row {
+        width: 100%;
+        display: table-row;
+        text-align: right;
+        float: right;
+        margin-bottom: 10px;
+
+        input.button {
+            text-align: center;
+            display: table-cell;
+        }
+    }
+}
+
 #credit-card-block {
     margin-top: 50px !important;
     border: 1px solid gray;
@@ -175,38 +220,4 @@ body {
     @include centered(50%);
     font-size: $normal_font_size - 1pt;
     padding-bottom: 40px !important;
-
-    form {
-        width: 100%;
-
-        div.form-row {
-            width: 100%;
-            display: table-row;
-
-            label {
-                width: 50%;
-                min-width: 50% !important;
-                display: table-cell;
-                padding-right: 5px;
-            }
-
-            .card-value {
-                width: 50%;
-                display: table-cell;
-            }
-        }
-
-        .button-row {
-            width: 100%;
-            display: table-row;
-            text-align: right;
-            float: right;
-            margin-bottom: 10px;
-
-            input.button {
-                text-align: center;
-                display: table-cell;
-            }
-        }
-    }
 }

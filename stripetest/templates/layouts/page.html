@@ -13,7 +13,11 @@
 Stripe.setPublishableKey('pk_tcgPDI1v5K1ILpwILdnKoHGRMRhMA');
 
 $(document).ready(function() {
-    $("#main-container").css('height', screen.height);
+  $("#main-container").css('height', screen.height);
+  $("#logout-button").click(function() {
+    if (confirm("Are you sure you want to log out?"))
+      $("#logout-form").get(0).submit();
+    });
 });
 </script>
 
@@ -26,6 +30,12 @@ $(document).ready(function() {
 <div id="logo">
 <span class="store-name">Striped<sup>&#x2122;</sup></span>
 <span class="store-slogan">The store with the mostest.</span>
+{% if user.is_authenticated %}
+<form action="/stripetest/force_logout" method="get" id="logout-form">
+{% csrf_token %}
+<input type="button" class="button" id="logout-button" value="Log Out"/>
+</form>
+{% endif %}
 </div>
 
 <div id="content">
