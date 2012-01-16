@@ -2,11 +2,13 @@
 
 {% block body %}
 
-<h2>Products</h2>
+<h2>Welcome to <span class='store-name'>Striped<sup>&#x2122;</sup></span>!</h2>
+
+<p>Dude, like, buy some of our stuff!</p>
 
 <ul>
 {% for product in products %}
-<li> <a href="/stripetest/product/{{ product.id }}">{{ product.description }}</li>
+<li> <a href="/stripetest/product/{{ product.id }}">{{ product.name }}</li>
 {% endfor %}
 </ul>
 {% endblock body %}

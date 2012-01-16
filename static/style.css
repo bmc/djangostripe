@@ -22,6 +22,11 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d8e0de', endColorstr='#0e0e0e',GradientType=0 );
   /* IE6-8 */ }
 
+.store-name {
+  font-family: 'Trade Winds', cursive;
+  font-size: 24pt;
+  color: #ff3300; }
+
 #logo {
   float: right;
   margin-top: 15px;
@@ -34,26 +39,34 @@ body {
   background: #00ccdd; }
   #logo sup {
     font-size: 12pt; }
-  #logo .store-name {
-    font-family: 'Trade Winds', cursive;
-    font-size: 24pt;
-    color: #ff3300; }
   #logo .store-slogan {
     font-size: 14pt;
     font-family: 'Sideshow', cursive; }
 
 #content {
   width: 70%;
-  height: 80%;
-  max-height: 80%;
   margin-left: auto;
   margin-right: auto;
+  height: 80%;
+  max-height: 80%;
   padding: 10px;
   border: 1px solid gray;
   background: white;
   border-radius: 10px;
   -moz-border-radius: 10px;
   padding: 10px; }
+
+#footer {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 10pt;
+  font-family: Helvetica, Verdana, Arial, sans-serif;
+  color: white;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 1em; }
 
 .button {
   background: #d8e0de;
