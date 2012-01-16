@@ -1,1 +1,4 @@
 *.pyc
+.envrc
+.sass-cache
+static/style.css

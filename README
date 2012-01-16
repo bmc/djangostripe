@@ -1,0 +1,6 @@
+static/style.css is generated from static/style.scss. SASS and Ruby must be
+installed.
+
+During development, run this command:
+
+$ sass --watch static/style.scss

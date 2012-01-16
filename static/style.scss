@@ -1,0 +1,212 @@
+
+@import url(http://fonts.googleapis.com/css?family=Trade+Winds);
+@import url(http://fonts.googleapis.com/css?family=Sideshow);
+
+$sans_serif: Helvetica, Verdana, Arial, sans-serif;
+$content_width: 70%;
+$normal_font_size: 14pt;
+
+@mixin gradient {
+    background: #d8e0de; /* Old browsers */
+
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Q4ZTBkZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIyJSIgc3RvcC1jb2xvcj0iI2FlYmZiYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iIzk5YWZhYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzhlYTZhMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjY3JSIgc3RvcC1jb2xvcj0iIzgyOWQ5OCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjgyJSIgc3RvcC1jb2xvcj0iIzRlNWM1YSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwZTBlMGUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+
+    background: -moz-linear-gradient(top,  #d8e0de 0%, #aebfbc 22%, #99afab 33%, #8ea6a2 50%, #829d98 67%, #4e5c5a 82%, #0e0e0e 100%); /* FF3.6+ */
+
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d8e0de), color-stop(22%,#aebfbc), color-stop(33%,#99afab), color-stop(50%,#8ea6a2), color-stop(67%,#829d98), color-stop(82%,#4e5c5a), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+
+    background: -webkit-linear-gradient(top,  #d8e0de 0%,#aebfbc 22%,#99afab 33%,#8ea6a2 50%,#829d98 67%,#4e5c5a 82%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
+
+    background: -o-linear-gradient(top,  #d8e0de 0%,#aebfbc 22%,#99afab 33%,#8ea6a2 50%,#829d98 67%,#4e5c5a 82%,#0e0e0e 100%); /* Opera 11.10+ */
+
+    background: -ms-linear-gradient(top,  #d8e0de 0%,#aebfbc 22%,#99afab 33%,#8ea6a2 50%,#829d98 67%,#4e5c5a 82%,#0e0e0e 100%); /* IE10+ */
+
+    background: linear-gradient(top,  #d8e0de 0%,#aebfbc 22%,#99afab 33%,#8ea6a2 50%,#829d98 67%,#4e5c5a 82%,#0e0e0e 100%); /* W3C */
+
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8e0de', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-8 */
+}
+
+@mixin drop-shadow($color) {
+    /* Drop shadow, lower right */
+
+    -moz-box-shadow: 5px 5px 4px #555;
+    -webkit-box-shadow: 5px 5px 4px #555;
+    box-shadow: 5px 5px 4px #555;
+}
+
+@mixin rounded-border($radius: 10px) {
+    border-radius: $radius;
+    -moz-border-radius: $radius;
+    padding: $radius;
+}
+
+@mixin centered($width: 100%) {
+    width: $width;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    font-family: $sans_serif;
+    font-size: $normal_font_size;
+    max-height: 900px;
+    @include gradient;
+}
+
+.store-name {
+    font-family: 'Trade Winds', cursive;
+    font-size: 24pt;
+    color: #ff3300;
+}
+
+#logo {
+    float: right;
+    margin-top: 15px;
+    margin-right: 15px;
+
+    /* Rounded border */
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    padding: 10px;
+    border: 1px solid gray;
+    background: #00ccdd;
+
+    sup {
+        font-size: 12pt;
+    }
+
+    .store-slogan {
+        font-size: 14pt;
+        font-family: 'Sideshow', cursive;
+    }
+}
+
+#content {
+    @include centered($content_width);
+    height: 80%;
+    max-height: 80%;
+    padding: 10px;
+
+    border: 1px solid gray;
+    background: white;
+    @include rounded-border;
+}
+
+#footer {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 10pt;
+    font-family: $sans_serif;
+    color: white;
+
+    @include centered($content_width);
+    text-align: center;
+    margin-top: 1em;
+}
+
+#error {
+    color: red;
+    @include centered($content_width / 2);
+    border: 1px solid red;
+    @include rounded_border;
+    margin-top: 50px;
+    font-size: $normal_font_size - 1pt;
+}
+
+.button {
+    @include gradient;
+    @include rounded-border(5px);
+    color: white;
+    border: 1px solid gray;
+
+    &:hover {
+        color: red;
+    }
+
+    &.button-down {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+.product-detail {
+
+    .product-name {
+        font-size: 24pt;
+        font-weight: bold;
+        padding: 0;
+    }
+
+    .product-description {
+        padding-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 5px;
+
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: $normal_font_size;
+        border-bottom: 1px solid gray;
+    }
+
+    .product-price {
+        margin: 0;
+        padding: 0;
+        font-size: 12pt;
+        float: right;
+
+        .product-id {
+            color: gray;
+            font-size: 10pt;
+            font-style: italic;
+            padding-right: 1em;
+        }
+    }
+}
+
+#credit-card-block {
+    margin-top: 50px !important;
+    border: 1px solid gray;
+    @include rounded-border(10px);
+    @include centered(50%);
+    font-size: $normal_font_size - 1pt;
+    padding-bottom: 40px !important;
+
+    form {
+        width: 100%;
+
+        div.form-row {
+            width: 100%;
+            display: table-row;
+
+            label {
+                width: 50%;
+                min-width: 50% !important;
+                display: table-cell;
+                padding-right: 5px;
+            }
+
+            .card-value {
+                width: 50%;
+                display: table-cell;
+            }
+        }
+
+        .button-row {
+            width: 100%;
+            display: table-row;
+            text-align: right;
+            float: right;
+            margin-bottom: 10px;
+
+            input.button {
+                text-align: center;
+                display: table-cell;
+            }
+        }
+    }
+}

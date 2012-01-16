@@ -17,6 +17,9 @@ class Product(models.Model):
     product_identifier = models.CharField(max_length=255)
     price              = models.DecimalField(max_digits=10, decimal_places=2)
 
+    def price_in_cents(self):
+        return int(self.price * 100)
+
 class Purchase(models.Model):
     product   = models.ForeignKey(Product)
     customer  = models.ForeignKey(Customer)

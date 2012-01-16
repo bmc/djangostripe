@@ -1,0 +1,143 @@
+{% extends "layouts/page.html" %}
+
+{% block head %}
+
+<script type="text/javascript">
+function stripeResponseHandler(status, response) {
+  if (response.error) {
+    $("#error").html(response.error.message);
+    $("#error").show();
+  }
+
+  else {
+    var the_form = $("#payment-form");
+
+    // Token from Stripe contains ID, last 4 digits of card, and card type.
+    var token = response['id'];
+
+    // Add the token to the form.
+    the_form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+
+    // ... and awa-a-a-ay we go.
+    alert("would submit here. Token is" + token);
+  }
+}
+
+function validatePurchaseForm() {
+  var errors = new Array();
+
+  var fields = {
+    '.card-number':       'Card number',
+    '.card-cvc':          'CVC',
+    '.card-expiry-month': 'Expiration month',
+    '.card-expiry-year':  'Expiration year'
+  }
+
+  for (selector in fields) {
+    var value = $(selector).val().replace(/\s/g, '');
+    if (value.length == 0) {
+      var str = fields[selector];
+      errors[errors.length] = str + " field cannot be blank.";
+    }
+  }
+
+  if (errors.length > 0) {
+    var s = "<p>";
+    $.each(errors, function(index, str) {
+      s += str + "<br/>";
+    });
+    s += "</p>";
+
+    $("#error").html(s);
+    $("#error").show();
+  }
+
+  else {
+    $("#error").empty();
+    $("#error").hide();
+  }
+
+  return (errors.length == 0);
+}
+
+$(document).ready(function() {
+  var buy_button = $("#buy-now-button");
+  $("#credit-card-block").hide();
+  buy_button.mousedown(function() { $(this).addClass("button-down"); });
+  buy_button.mouseup(function() { $(this).removeClass("button-down"); });
+
+  buy_button.click(function() {
+   $("#credit-card-block").show(); 
+  });
+
+  $("#error").hide();
+
+  // Submission of credit card form: Get a single-use token from Stripe.
+  $("#pay-now-button").click(function() {
+    if (validatePurchaseForm()) {
+      var price_in_cents = {{ product.price_in_cents }}
+      Stripe.createToken({
+        number:    $('.card-number').val(),
+        cvc:       $('.card-cvc').val(),
+        exp_month: $('.card-expiry-month').val(),
+        exp_year:  $('.card-expiry-year').val()
+      }, price_in_cents, stripeResponseHandler);
+
+      // Prevent form submission.
+      return false;
+    }
+  });
+
+});
+</script>
+
+{% endblock head %}
+
+{% block body %}
+
+<div class="product-detail">
+
+  <p class="product-name">{{ product.name }}</p>
+
+  <p class="product-description">{{ product.description}}</p>
+
+  <p class="product-price"><span class="product-id">{{ product.product_identifier }}</span> Price: ${{ product.price }}
+  <input type="button" value="Buy now!" class="button" id="buy-now-button"/>
+  </p>
+</div>
+
+<div id="error"></div>
+
+<div id="credit-card-block">
+  <form action="/stripetest/buy" method="POST" id="payment-form">
+    <input type="hidden" name="product_id" value="{{ product.id }}">
+    <div class="form-row">
+      <label>Card number</label>
+      <span class="card-value">
+        <input type="text" size="20" autocomplete="off" class="card-number"/>
+      </span>
+    </div>
+
+    <div class="form-row">
+      <label>CVV</label>
+      <span class="card-value">
+        <input type="text" size="4" autocomplete="off" class="card-cvc"/>
+      </span>
+    </div>
+
+    <div class="form-row">
+      <label>Expiration (MM/YYYY)</label>
+      <span class="card-value">
+        <input type="text" size="2" class="card-expiry-month">
+        <span>&nbsp;/&nbsp;</span>
+        <input type="text" size="4" class="card-expiry-year">
+      </span>
+    </div>
+
+    <div class="button-row">
+      <input type="button" class="button" id="pay-now-button" value="Pay now"/>
+    </div>
+  </form>
+</div>
+
+{% endblock body %}
