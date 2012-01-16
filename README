@@ -1,3 +1,11 @@
+STRIPE API
+----------
+
+Python Stripe API must be installed for this demo to work.
+
+    $ pip install --index-url https://code.stripe.com --upgrade stripe
+
+
 static/style.css is generated from static/style.scss. SASS and Ruby must be
 installed.
 
