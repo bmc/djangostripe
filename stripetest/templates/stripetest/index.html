@@ -1,5 +1,13 @@
 {% extends "layouts/page.html" %}
 
 {% block body %}
-<h1>{{ title }}</h1>
+<h1>Welcome to Stripe Central</h1>
+
+<h2>Products</h2>
+
+<ul>
+{% for product in products %}
+<li> <a href="/stripetest/product/{{ product.id }}">{{ product.description }}</li>
+{% endfor %}
+</ul>
 {% endblock body %}

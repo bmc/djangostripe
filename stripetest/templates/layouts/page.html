@@ -2,14 +2,35 @@
 <html xmlns:og="http://opengraphprotocol.org/schema/"
       xmlns:fb="http://www.facebook.com/2008/fbml">
 <head>
+<title>Striped: The Store with the Most</title>
 <link href="/static/style.css" media="screen" rel="stylesheet" type="text/css"/>
-<script src="/static/jquery-1.7-min.js" type="text/javascript"></script>
+<script src="/static/jquery-1.7.min.js" type="text/javascript"></script>
+<script src="https://js.stripe.com/v1/" type="text/javascript"></script>
+
+<script type="text/javascript">
+// Set Stripe publishable key. (This is Brian's test key, for now.)
+Stripe.setPublishableKey('pk_tcgPDI1v5K1ILpwILdnKoHGRMRhMA');
+
+$(document).ready(function() {
+    $("#main-container").css('height', screen.height);
+});
+</script>
+
 {% block head %}
 {% endblock head %}
+
 </head>
 
-<body>
+<body id="main-container" class="gradient">
+<div id="logo">
+<span class="store-name">Striped<sup>&#x2122;</sup></span>
+<span class="store-slogan">The store with the mostest.</span>
+</div>
+
+<div id="content">
 {% block body %}
 {% endblock body %}
+</div>
+
 </body>
 </html>
