@@ -1,5 +1,9 @@
 # Django settings for stripe project.
 
+import os
+
+ROOT_DIR = os.path.abspath(os.path.dirname(__file__))
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -13,7 +17,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': '/home/bmc/src/consulting/alphabuyer/bmc/mysql.cnf'
+            'read_default_file': '%s/mysql.cnf' % ROOT_DIR
         }
     }
 }
@@ -74,7 +78,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/home/bmc/src/consulting/alphabuyer/bmc/static',
+    '%s/static' % ROOT_DIR,
 )
 
 # List of finder classes that know how to find static files in
@@ -109,7 +113,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/home/bmc/src/consulting/alphabuyer/bmc/stripetest/templates',
+    '%s/stripetest/templates' % ROOT_DIR,
 )
 
 INSTALLED_APPS = (
@@ -173,8 +177,6 @@ LOGGING = {
 }
 
 # Stripe stuff.
-
-import os
 
 STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
 STRIPE_API_KEY         = os.getenv('STRIPE_API_KEY')
