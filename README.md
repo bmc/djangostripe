@@ -74,7 +74,7 @@ system, as well as Ruby Gems, and then run the following:
 
 Generate `static/style.css` from `static/style.scss` as follows:
 
-    $ sass static/style.scss
+    $ sass static/style.scss >static/style.css
 
 ### While developing
 
