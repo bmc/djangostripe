@@ -20,16 +20,17 @@ permissions, as shown below:
 
 ## Environment
 
-The `settings.py` file assumes the existence of two environment variables:
+The `settings.py` file assumes the existence of the following environment
+variables:
 
 * STRIPE_PUBLISHABLE_KEY should be set to the test-mode Stripe publishable key.
 * STRIPE_API_KEY should be set to the test-mode Stripe API key.
 
 See your Stripe account for details.
 
-These values *can* be configured directly in `settings.py`. They're currently
-pulled from the environment for security reasons--namely, I don't want to give
-*my* keys to *you*.
+These values *can* be configured directly in `settings.py`. The Stripe keys are
+currently pulled from the environment for security reasons--namely, I don't
+want to give *my* keys to *you*.
 
 ## Admin
 
