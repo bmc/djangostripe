@@ -14,4 +14,7 @@ urlpatterns = patterns('stripetest.views',
 
 urlpatterns += patterns('',
     url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    url(r'^favicon\.ico$', 'django.views.generic.simple.redirect_to', {
+        'url': '/static/favicon.ico'
+    })
 )

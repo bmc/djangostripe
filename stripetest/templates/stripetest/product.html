@@ -112,9 +112,7 @@ $(document).ready(function() {
 <div class="product-detail">
 
   <p class="product-name">{{ product.name }}</p>
-
   <p class="product-description">{{ product.description}}</p>
-
   <p class="product-price"><span class="product-id">{{ product.product_identifier }}</span> Price: ${{ product.price|intcomma }}
   <input type="button" value="Buy now!" class="button" id="buy-now-button"/>
   </p>
@@ -123,7 +121,7 @@ $(document).ready(function() {
 <div id="error"></div>
 
 <div id="credit-card-block">
-  <form action="/stripetest/buy" method="get" id="payment-form">
+  <form action="/stripetest/buy" method="post" id="payment-form">
     {% csrf_token %}
     <input type="hidden" name="product_id" value="{{ product.id }}">
     <div class="form-row">

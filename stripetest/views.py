@@ -14,15 +14,14 @@ def index(request):
         'user':     request.user
     }
     context_hash.update(common_context_hash(request))
-    return render_to_response('stripetest/index.html', Context(context_hash))
+    return render_to_response(
+      'stripetest/index.html', RequestContext(request, context_hash)
+    )
 
 @login_required
 def buy(request):
-    # Request is assumed to be a GET, since I don't feel like debugging why
-    # the CSRF isn't working right..
-
     # Get the Stripe token associated with the credit card details.
-    stripe_token = request.GET['stripeToken']
+    stripe_token = request.POST['stripeToken']
 
     # Set the Stripe secret key. This is currently the test key for Brian
     # Clapper. See https://manage.stripe.com/account/
@@ -66,7 +65,7 @@ def buy(request):
         )
 
     # Create the charge on Stripe's servers. This will charge the card.
-    product = Product.objects.get(id=request.GET['product_id'])
+    product = Product.objects.get(id=request.POST['product_id'])
     charge = stripe.Charge.create(
         amount      = product.price_in_cents(),
         currency    = 'usd',
@@ -79,13 +78,15 @@ def buy(request):
     purchase.save()
 
     context_hash = {
-        'card_last4': request.GET['card_last4'],
-        'card_type':  request.GET['card_type'],
+        'card_last4': request.POST['card_last4'],
+        'card_type':  request.POST['card_type'],
         'user':       request.user,
         'product':    product
     }
     context_hash.update(common_context_hash(request))
-    return render_to_response('stripetest/receipt.html', Context(context_hash))
+    return render_to_response(
+        'stripetest/receipt.html', RequestContext(request, context_hash)
+    )
 
 @login_required
 def product(request, id):
@@ -95,7 +96,9 @@ def product(request, id):
         'user':    request.user
     }
     context_hash.update(common_context_hash(request))
-    return render_to_response('stripetest/product.html', Context(context_hash))
+    return render_to_response(
+        'stripetest/product.html', RequestContext(request, context_hash)
+    )
 
 def force_logout(request):
     logout(request)
