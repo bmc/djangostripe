@@ -1,12 +1,26 @@
 # Running this critter
 
-## Stripe API
+## Prerequisites
+
+You'll need the following software:
+
+* Python 2.5 or better.
+* The Stripe Python API (see below)
+* PyYAML (see below)
+
+### Stripe API
 
 The Python Stripe API must be installed for this demo to work.
 
     $ pip install --index-url https://code.stripe.com --upgrade stripe
 
 See <https://stripe.com/docs/libraries>.
+
+### PyYAML
+
+The fixtures (for initial data) use YAML, and they require PyYAML.
+
+    $ pip install PyYAML
 
 ## Database
 

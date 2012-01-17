@@ -173,7 +173,7 @@ LOGGING = {
 }
 
 FIXTURE_DIRS = (
-    '%s/fixtures' % ROOT_DIR
+    '%s/stripetest/fixtures' % ROOT_DIR,
 )
 
 # Stripe stuff.
