@@ -171,3 +171,10 @@ LOGGING = {
         }
     }
 }
+
+# Stripe stuff.
+
+import os
+
+STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
+STRIPE_API_KEY         = os.getenv('STRIPE_API_KEY')

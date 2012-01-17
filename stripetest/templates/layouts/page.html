@@ -10,7 +10,7 @@
 
 <script type="text/javascript">
 // Set Stripe publishable key. (This is Brian's test key, for now.)
-Stripe.setPublishableKey('pk_tcgPDI1v5K1ILpwILdnKoHGRMRhMA');
+Stripe.setPublishableKey("{{ stripe_publishable_key }}");
 
 $(document).ready(function() {
   $("#main-container").css('height', screen.height);

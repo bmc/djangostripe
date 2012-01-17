@@ -9,11 +9,12 @@ import stripe
 
 @login_required
 def index(request):
-    context = Context({
+    context_hash = {
         'products': Product.objects.all(),
         'user':     request.user
-    })
-    return render_to_response('stripetest/index.html', context)
+    }
+    context_hash.update(common_context_hash(request))
+    return render_to_response('stripetest/index.html', Context(context_hash))
 
 @login_required
 def buy(request):
@@ -25,7 +26,7 @@ def buy(request):
 
     # Set the Stripe secret key. This is currently the test key for Brian
     # Clapper. See https://manage.stripe.com/account/
-    stripe.api_key = 'U0rEoxN4XTw1uKTBn0a8He9ITVQgBvVd'
+    stripe.api_key = settings.STRIPE_API_KEY
 
     user = request.user
 
@@ -77,24 +78,31 @@ def buy(request):
     purchase = Purchase(product=product, user=user)
     purchase.save()
 
-    context = Context({
+    context_hash = {
         'card_last4': request.GET['card_last4'],
         'card_type':  request.GET['card_type'],
         'user':       request.user,
         'product':    product
-    })
-
-    return render_to_response('stripetest/receipt.html', context)
+    }
+    context_hash.update(common_context_hash(request))
+    return render_to_response('stripetest/receipt.html', Context(context_hash))
 
 @login_required
 def product(request, id):
     product = Product.objects.get(id=id)
-    context = Context({
+    context_hash = {
         'product': product,
         'user':    request.user
-    })
-    return render_to_response('stripetest/product.html', context)
+    }
+    context_hash.update(common_context_hash(request))
+    return render_to_response('stripetest/product.html', Context(context_hash))
 
 def force_logout(request):
     logout(request)
     return HttpResponseRedirect(settings.LOGIN_URL)
+
+def common_context_hash(request):
+    return {
+        'user': request.user,
+        'stripe_publishable_key': settings.STRIPE_PUBLISHABLE_KEY
+    }
