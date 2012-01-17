@@ -10,13 +10,22 @@ See <https://stripe.com/docs/libraries>.
 
 ## Database
 
+### Create the MySQL Database
+
 The code currently assumes a MySQL database, so you'll need all the usual
 Python and Django MySQL nonsense. The MySQL configuration parameters are in
 `mysql.cnf`. Once you have MySQL set up, create the database and set the
 permissions, as shown below:
 
-    create database stripe character set utf8;
-    grant all privileges on stripe.* to stripe @'localhost' identified by 'stripe';
+    mysql> create database stripe character set utf8;
+    mysql> grant all privileges on stripe.* to stripe @'localhost' identified by 'stripe';
+
+### Create the Database Tables and Initial Data
+
+The `fixtures/stripetest-data.json` file contains some initial test products.
+Sync'ing the Django database will load the fixture, as well.
+
+    $ python manage.py syncdb
 
 ## Environment
 
