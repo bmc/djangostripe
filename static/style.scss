@@ -89,8 +89,9 @@ body {
     @include rounded-border;
 }
 
-#home {
+#navbar {
     font-size: $normal_font_size - 5pt;
+    display: inline;
 }
 
 #footer {
@@ -122,6 +123,10 @@ body {
     background: $logo_background;
     margin-top: 100px;
     padding-bottom: 40px !important;
+}
+
+a.button {
+    text-decoration: none;
 }
 
 .button {
