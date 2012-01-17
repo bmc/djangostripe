@@ -107,7 +107,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'bmc.urls'
+ROOT_URLCONF = 'djangostripe.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -166,14 +166,9 @@ LOGGING = {
         },
         'django.db.backends': {
             'handlers': ['console'],
-            'level': 'DEBUG',
+            'level': 'ERROR',
             'propagate': True,
         },
-        'bmc.custom': {
-            'handlers': ['mail_admins', 'console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        }
     }
 }
 
