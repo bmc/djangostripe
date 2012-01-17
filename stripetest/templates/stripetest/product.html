@@ -8,7 +8,6 @@ function hidden_input(name, value) {
 }
 
 function stripeResponseHandler(status, response) {
-  $("body").css("cursor", "auto");
   if (response.error) {
     $("#error").html(response.error.message);
     $("#error").show();
@@ -108,6 +107,7 @@ $(document).ready(function() {
 {% endblock head %}
 
 {% block body %}
+{% load humanize %}
 
 <div class="product-detail">
 
@@ -115,7 +115,7 @@ $(document).ready(function() {
 
   <p class="product-description">{{ product.description}}</p>
 
-  <p class="product-price"><span class="product-id">{{ product.product_identifier }}</span> Price: ${{ product.price }}
+  <p class="product-price"><span class="product-id">{{ product.product_identifier }}</span> Price: ${{ product.price|intcomma }}
   <input type="button" value="Buy now!" class="button" id="buy-now-button"/>
   </p>
 </div>
