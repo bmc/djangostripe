@@ -3,23 +3,36 @@
 {% block head %}
 
 <script type="text/javascript">
+function hidden_input(name, value) {
+  return "<input type='hidden' name='" + name + "' value='" + value + "'/>";
+}
+
 function stripeResponseHandler(status, response) {
+  $("body").css("cursor", "auto");
   if (response.error) {
     $("#error").html(response.error.message);
     $("#error").show();
   }
 
   else {
-    var the_form = $("#payment-form");
+    var form = $("#payment-form");
 
-    // Token from Stripe contains ID, last 4 digits of card, and card type.
+    // Token from Stripe contains ID, card info, and other stuff.
     var token = response['id'];
+    var card = response['card'];
 
     // Add the token to the form.
-    the_form.append("<input type='hidden' name='stripeToken' value='" + token + "'/>");
+    form.append(hidden_input("stripeToken", token));
+
+    // Add some of the card information to the form.
+    var card_info = response['card'];
+    if (card_info != null) {
+      form.append(hidden_input('card_last4', card_info['last4']));
+      form.append(hidden_input('card_type', card_info['type']));
+    }
 
     // ... and awa-a-a-ay we go.
-    the_form.get(0).submit();
+    form.get(0).submit();
   }
 }
 
@@ -76,6 +89,7 @@ $(document).ready(function() {
   $("#pay-now-button").click(function() {
     if (validatePurchaseForm()) {
       var price_in_cents = {{ product.price_in_cents }}
+      $("body").css("cursor", "wait");
       Stripe.createToken({
         number:    $('.card-number').val(),
         cvc:       $('.card-cvc').val(),
@@ -109,7 +123,8 @@ $(document).ready(function() {
 <div id="error"></div>
 
 <div id="credit-card-block">
-  <form action="/stripetest/buy" method="POST" id="payment-form">
+  <form action="/stripetest/buy" method="get" id="payment-form">
+    {% csrf_token %}
     <input type="hidden" name="product_id" value="{{ product.id }}">
     <div class="form-row">
       <label>Card number</label>

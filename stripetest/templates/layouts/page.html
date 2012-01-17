@@ -27,18 +27,22 @@ $(document).ready(function() {
 </head>
 
 <body id="main-container">
-<div id="logo">
-<span class="store-name">Striped<sup>&#x2122;</sup></span>
-<span class="store-slogan">The store with the mostest.</span>
-{% if user.is_authenticated %}
-<form action="/stripetest/force_logout" method="get" id="logout-form">
-{% csrf_token %}
-<input type="button" class="button" id="logout-button" value="Log Out"/>
-</form>
-{% endif %}
+
+<div id="outer-logo-container">
+  <div id="logo">
+    <span class="store-name">Striped<sup>&#x2122;</sup></span>
+    <span class="store-slogan">The store with the mostest.</span>
+    {% if user.is_authenticated %}
+      <form action="/stripetest/force_logout" method="get" id="logout-form">
+        {% csrf_token %}
+        <input type="button" class="button" id="logout-button" value="Log Out"/>
+      </form>
+    {% endif %}
+  </div>
 </div>
 
 <div id="content">
+<div id="home"><a href="/">Home</a></div>
 {% block body %}
 {% endblock body %}
 </div>

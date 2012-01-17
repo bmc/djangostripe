@@ -1,0 +1,12 @@
+{% extends "layouts/page.html" %}
+
+{% block body %}
+
+<h2>This is your receipt. Please print and save this page, for your records.</h2>
+
+<p>Your {{ card_type }} credit card, ending in {{ card_last4 }} was charged
+${{ product.price }} for: {{ product.name }}.</p>
+
+<p>Thank you for shopping at <span class="store-name">Striped</span>!</p>
+
+{% endblock body %}

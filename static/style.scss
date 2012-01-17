@@ -5,36 +5,23 @@
 $sans_serif: Helvetica, Verdana, Arial, sans-serif;
 $content_width: 70%;
 $normal_font_size: 14pt;
-$logo_background: #00ccdd;
+$logo_background: #d7e8ef;
 
-@mixin gradient {
-    background: #d8e0de; /* Old browsers */
-
-    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Q4ZTBkZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIyJSIgc3RvcC1jb2xvcj0iI2FlYmZiYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iIzk5YWZhYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzhlYTZhMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjY3JSIgc3RvcC1jb2xvcj0iIzgyOWQ5OCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjgyJSIgc3RvcC1jb2xvcj0iIzRlNWM1YSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwZTBlMGUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-
-    background: -moz-linear-gradient(top,  #d8e0de 0%, #aebfbc 22%, #99afab 33%, #8ea6a2 50%, #829d98 67%, #4e5c5a 82%, #0e0e0e 100%); /* FF3.6+ */
-
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d8e0de), color-stop(22%,#aebfbc), color-stop(33%,#99afab), color-stop(50%,#8ea6a2), color-stop(67%,#829d98), color-stop(82%,#4e5c5a), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
-
-    background: -webkit-linear-gradient(top,  #d8e0de 0%,#aebfbc 22%,#99afab 33%,#8ea6a2 50%,#829d98 67%,#4e5c5a 82%,#0e0e0e 100%); /* Chrome10+,Safari5.1+ */
-
-    background: -o-linear-gradient(top,  #d8e0de 0%,#aebfbc 22%,#99afab 33%,#8ea6a2 50%,#829d98 67%,#4e5c5a 82%,#0e0e0e 100%); /* Opera 11.10+ */
-
-    background: -ms-linear-gradient(top,  #d8e0de 0%,#aebfbc 22%,#99afab 33%,#8ea6a2 50%,#829d98 67%,#4e5c5a 82%,#0e0e0e 100%); /* IE10+ */
-
-    background: linear-gradient(top,  #d8e0de 0%,#aebfbc 22%,#99afab 33%,#8ea6a2 50%,#829d98 67%,#4e5c5a 82%,#0e0e0e 100%); /* W3C */
-
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8e0de', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-8 */
+ @mixin gradient {
+    background: #f0f0f0;
+    background: -webkit-linear-gradient(top, #f7f7f7, #d1d1d1);
+    background: -moz-linear-gradient(top, #f7f7f7, #d1d1d1);
+    background: -ms-linear-gradient(top, #f7f7f7, #d1d1d1);
+    background: -o-linear-gradient(top, #f7f7f7, #d1d1d1);
+    border: solid 1px #7f7f7f;
 }
 
-@mixin drop-shadow($color) {
+@mixin drop-shadow($color: #555) {
     /* Drop shadow, lower right */
 
-    -moz-box-shadow: 5px 5px 4px #555;
-    -webkit-box-shadow: 5px 5px 4px #555;
-    box-shadow: 5px 5px 4px #555;
+    -moz-box-shadow: 5px 5px 4px $color;
+    -webkit-box-shadow: 5px 5px 4px $color;
+    box-shadow: 5px 5px 4px $color;
 }
 
 @mixin rounded-border($radius: 10px) {
@@ -53,7 +40,7 @@ body {
     font-family: $sans_serif;
     font-size: $normal_font_size;
     max-height: 900px;
-    @include gradient;
+    background: $logo_background;
 }
 
 .store-name {
@@ -62,25 +49,32 @@ body {
     color: #ff3300;
 }
 
-#logo {
-    float: right;
-    margin-top: 15px;
-    margin-right: 15px;
+#outer-logo-container {
+    width: 100%;
 
-    /* Rounded border */
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    padding: 10px;
-    border: 1px solid gray;
-    background: $logo_background;
+    #logo {
+        margin-right: 75px;
+        margin-top: 15px;
+        float: right;
+        width: auto;
 
-    sup {
-        font-size: 12pt;
-    }
+        /* Rounded border */
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        padding: 10px;
+        border: 1px solid gray;
+        background: $logo_background;
 
-    .store-slogan {
-        font-size: 14pt;
-        font-family: 'Sideshow', cursive;
+        sup {
+            font-size: 12pt;
+        }
+
+        .store-slogan {
+            font-size: 14pt;
+            font-family: 'Sideshow', cursive;
+        }
+
+        @include drop-shadow;
     }
 }
 
@@ -95,12 +89,16 @@ body {
     @include rounded-border;
 }
 
+#home {
+    font-size: $normal_font_size - 5pt;
+}
+
 #footer {
     font-style: italic;
     font-weight: normal;
     font-size: 10pt;
     font-family: $sans_serif;
-    color: white;
+    color: gray;
 
     @include centered($content_width);
     text-align: center;
@@ -129,7 +127,7 @@ body {
 .button {
     @include gradient;
     @include rounded-border(5px);
-    color: white;
+    color: black;
     border: 1px solid gray;
 
     &:hover {
