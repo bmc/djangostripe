@@ -3,8 +3,9 @@ from django.contrib.auth.models import User
 
 class CustomerChargeData(models.Model):
     user               = models.ForeignKey(User)
-    stripe_card_token  = models.CharField(max_length=255)
     stripe_customer_id = models.CharField(max_length=255)
+    card_type          = models.CharField(max_length=20)
+    card_last4         = models.CharField(max_length=4)
 
 class Product(models.Model):
     name               = models.CharField(max_length=80)

@@ -29,13 +29,17 @@ def buy(request):
 
     user = request.user
 
+    # Get other parameters.
+    card_last4 = request.POST['card_last4']
+    card_type  = request.POST['card_type']
+
     # Determine if we have a local customer record for this user and card. If
     # not, we'll create one and create a stripe customer. NOTE: A Stripe
     # "Customer" appears to be associated with one and only one credit card.
     # So, our data model keeps multiple CustomerChargeData records per user,
     # one for each card.
     card_data = CustomerChargeData.objects.filter(
-        user=user, stripe_card_token=stripe_token
+        user = user, card_type = card_type, card_last4 = card_last4
     )
     if len(card_data) == 0:
         # Create Stripe customer.
@@ -49,7 +53,8 @@ def buy(request):
         local_customer = CustomerChargeData(
             user = user,
             stripe_customer_id = stripe_customer.id,
-            stripe_card_token = stripe_token
+            card_type = card_type,
+            card_last4 = card_last4
         )
         local_customer.save()
 
@@ -78,8 +83,8 @@ def buy(request):
     purchase.save()
 
     context_hash = {
-        'card_last4': request.POST['card_last4'],
-        'card_type':  request.POST['card_type'],
+        'card_last4': card_last4,
+        'card_type':  card_type,
         'user':       request.user,
         'product':    product
     }
