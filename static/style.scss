@@ -97,7 +97,7 @@ img.store-logo {
 
 #navbar {
     font-size: $normal_font_size - 5pt;
-    display: inline;
+    margin-top: 20px !important;
 }
 
 #footer {
@@ -140,6 +140,7 @@ a.button {
     @include rounded-border(5px);
     color: black;
     border: 1px solid gray;
+    padding: 10px;
 
     &:hover {
         color: red;
