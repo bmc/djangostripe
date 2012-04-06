@@ -13,6 +13,7 @@ You'll need the following software:
 * Python 2.5 or better.
 * The Stripe Python API (see below)
 * PyYAML (see below)
+* Ruby and Sass, for stylesheet handling. (See below.)
 
 ## Stripe API
 
@@ -89,7 +90,11 @@ system, as well as Ruby Gems, and then run the following:
 
 If you're using the system Ruby, you may have to run that command under `sudo`.
 
+If you'd prefer to use [LESS][], or just straight CSS, it's not terribly
+difficult to convert the `static/style.scss`.
+
 [Sass]: http://sass-lang.com/
+[LESS]: http://lesscss.org/
 
 ## Before running
 
