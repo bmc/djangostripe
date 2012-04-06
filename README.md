@@ -141,10 +141,10 @@ _know_ they're good people.
 
 # License and Copyright
 
-This code is copyright &copy; Alphabuyer, LLC, and [ArdenTex, Inc.][], and
+This code is copyright &copy; [Alphabuyer][], LLC, and [ArdenTex][] Inc., and
 is released under the [Creative Commons Attribution 3.0 Unported][] (CC BY 3.0)
 license. Please see <http://creativecommons.org/licenses/by/3.0/legalcode>
 for the complete license terms.
 
-[ArdenTex, Inc.]: http://www.ardentex.com/
+[ArdenTex]: http://www.ardentex.com/
 [Creative Commons Attribution 3.0 Unported]: http://creativecommons.org/licenses/by/3.0/
