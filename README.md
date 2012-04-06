@@ -11,8 +11,8 @@ one way to integrate Django with the [Stripe][] payment gateway.
 You'll need the following software:
 
 * Python 2.5 or better.
-* The Stripe Python API (see below)
-* PyYAML (see below)
+* The Stripe Python API. (See below.)
+* PyYAML. (See below.)
 * Ruby and Sass, for stylesheet handling. (See below.)
 
 ## Stripe API
