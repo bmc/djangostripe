@@ -28,6 +28,10 @@ The fixtures (for initial data) use YAML, and they require PyYAML.
 
     $ pip install PyYAML
 
+## Stripe
+
+You must create a Stripe account to run this software.
+
 # Database
 
 ## Create the MySQL Database
@@ -54,8 +58,9 @@ Sync'ing the Django database will load the fixture, as well.
 The `settings.py` file assumes the existence of the following environment
 variables:
 
-* STRIPE_PUBLISHABLE_KEY should be set to the test-mode Stripe publishable key.
-* STRIPE_API_KEY should be set to the test-mode Stripe API key.
+* `STRIPE_PUBLISHABLE_KEY` should be set to your Stripe publishable key (test
+  mode or live).
+* `STRIPE_API_KEY` should be set to the Stripe API key (test mode or live).
 
 See your Stripe account for details.
 
