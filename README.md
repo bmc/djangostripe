@@ -121,8 +121,8 @@ copies, just edit the appropriate `<script>` element in the
 
 # Acknowledgements
 
-I developed this software as a demonstration for [Alphabuyer][], LLC, as part
-of a consulting effort.
+I developed this software as a demonstration, while under contract to
+[Alphabuyer][], LLC.
 
 **Plug** Alphabuyer is a group buying portal. To quote the Alphabuyer website:
 
