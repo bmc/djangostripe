@@ -124,7 +124,7 @@ copies, just edit the appropriate `<script>` element in the
 I developed this software as a demonstration, while under contract to
 [Alphabuyer][], LLC.
 
-**Plug** Alphabuyer is a group buying portal. To quote the Alphabuyer website:
+**Plug**: Alphabuyer is a group buying portal. To quote the Alphabuyer website:
 
 > We research local suppliers and evaluate their current offerings. Then we
 > negotiate special group deals (e.g. "What kind of deal will you give us if
@@ -133,7 +133,7 @@ I developed this software as a demonstration, while under contract to
 
 Check 'em out.
 
-Disclaimer: While I have done consulting for Alphabuyer, this isn't a paid
+**Disclaimer**: While I have done consulting for Alphabuyer, this isn't a paid
 plug. I happen to think they have a good product. Having worked with them, I
 _know_ they're good people.
 
